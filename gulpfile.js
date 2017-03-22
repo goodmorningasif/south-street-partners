@@ -19,7 +19,9 @@ var paths = {
 	php: uri.concat('**/*.php'),
 	js: uri.concat('src/js/**/*.js'),
 	src: uri.concat('src/js'),
-	dest: uri.concat('prod/')
+	dest: uri.concat('prod/'),
+	modJs: uri.concat('prod/scripts-min.js'),
+	modCss: uri.concat('prod/styles.css')
 }
 
 // Error Handling
@@ -34,33 +36,29 @@ var plumberErrorHandler = {
 gulp.task('styles', function() {
 	gulp.src(paths.styles)
 	  .pipe(plumber(plumberErrorHandler))
-    .pipe(modernizr())
 	  .pipe(sass())
     .pipe(clean())
 	  .pipe(gulp.dest(paths.dest))
 	  .pipe(livereload());
 });
 
-// Minify Css 
-gulp.task('minify', function() {
-  return gulp.src(paths.dest.concat('styles.css'))
-    .pipe(sourcemaps.init())
-    .pipe(clean())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest(paths.dest))
-    .pipe(livereload());
-});
-
 // Uglify JS
 gulp.task('uglify', function() {
 	gulp.src(paths.js)
 		.pipe(plumber(plumberErrorHandler))
-		.pipe(modernizr())
-		.pipe(concat('scripts-min.js'))
+		.pipe(concat('scripts.js'))
 	  .pipe(uglify())
 	  .pipe(gulp.dest(paths.dest))
-	  .pipe(livereload());
+	  .pipe(livereload())
 });
+
+// Run Moderizr on css & js
+gulp.task('modernizr', function() {
+	gulp.src([paths.modCss, paths.modJs])
+    .pipe(modernizr())
+    .pipe(uglify())
+    .pipe(gulp.dest(paths.dest));
+})
 
 // Watch task
 gulp.task('default', function() {
@@ -68,6 +66,6 @@ gulp.task('default', function() {
 	gulp.watch(paths.php, livereload.reload);
 	gulp.watch(paths.scss, ['styles']);
 	gulp.watch(paths.js, ['uglify']);
-	gulp.watch(paths.dest, ['minify']);
+	// gulp.watch([paths.modJs, paths.modCss], ['modernizr']);
 });
 
