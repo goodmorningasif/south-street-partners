@@ -21,13 +21,13 @@ if (file_exists(dirname(__FILE__) . '/local-config.php')) {
 
 // Global DB config
 if (!defined('DB_NAME')) {
-	define('DB_NAME', 'south');
+	define('DB_NAME', 'dummy');
 }
 if (!defined('DB_USER')) {
-	define('DB_USER', 'street');
+	define('DB_USER', 'dummy');
 }
 if (!defined('DB_PASSWORD')) {
-	define('DB_PASSWORD', 'partners');
+	define('DB_PASSWORD', 'dummy');
 }
 if (!defined('DB_HOST')) {
 	define('DB_HOST', 'localhost');
@@ -87,17 +87,21 @@ define('WPLANG', '');
  *
  * These are required because wordpress is installed in a subdirectory.
  */
+
+$local_path = '10.1.10.96/south-street-partners';
+// $_SERVER['SERVER_NAME']
+
 if (!defined('WP_SITEURL')) {
-	define('WP_SITEURL', 'http://' . $_SERVER['SERVER_NAME'] . '/wordpress');
+	define('WP_SITEURL', 'http://' . $local_path . '/wordpress');
 }
 if (!defined('WP_HOME')) {
-	define('WP_HOME',    'http://' . $_SERVER['SERVER_NAME'] . '');
+	define('WP_HOME',    'http://' . $local_path . '');
 }
 if (!defined('WP_CONTENT_DIR')) {
 	define('WP_CONTENT_DIR', dirname(__FILE__) . '/content');
 }
 if (!defined('WP_CONTENT_URL')) {
-	define('WP_CONTENT_URL', 'http://' . $_SERVER['SERVER_NAME'] . '/content');
+	define('WP_CONTENT_URL', 'http://' . $local_path . '/content');
 }
 
 
@@ -109,7 +113,7 @@ if (!defined('WP_CONTENT_URL')) {
  * in their development environments.
  */
 if (!defined('WP_DEBUG')) {
-	define('WP_DEBUG', false);
+	define('WP_DEBUG', true);
 }
 
 /* That's all, stop editing! Happy blogging. */
