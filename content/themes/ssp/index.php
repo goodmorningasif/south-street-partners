@@ -14,17 +14,6 @@
 
 	get_header(); ?>
 
-<?php
-
-/**
-*  Console Logs
-* 
-* echo "<script>console.log('".$GLOBALS['maps'].", outputs map');</script>";
-*/  
-
-
-?>
-
 <!-- ==== Section: Nav ==== -->
 <section id="nav">
 	<h1>South Street Partners</h1>
@@ -138,7 +127,7 @@
 	</div>
 	<div class="contact">
 	  <div class="email">
-	    <a href="mailto:info@southstreetpartners.com" alt="mail"><?php echo file_get_contents($GLOBALS['url']."/assets/mail.svg"); ?></a>
+	    <a href="mailto:info@southstreetpartners.com" alt="mail"><?php echo file_get_contents($GLOBALS['url']."/assets/email.svg"); ?></a>
 	  </div>
 	  <div class="terms">
 	    <p>Private Policy</p>
@@ -146,5 +135,18 @@
 	  </div>
 	</div>
 </section>
+
+
+
+<?php
+
+/**
+*  Console Logs
+* 
+* echo "<script>console.log('".$GLOBALS['maps'].", outputs map');</script>";
+*/  
+
+
+?>
 
 <?php get_footer();
