@@ -31,3 +31,8 @@
 
 <body <?php body_class(); ?>>
 
+<!-- ==== Section: Nav ==== -->
+<section id="nav">
+  <?php get_template_part('components/nav') ?>
+</section>
+

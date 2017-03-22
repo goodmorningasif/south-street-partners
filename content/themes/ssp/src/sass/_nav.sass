@@ -6,10 +6,57 @@
 
 
 #nav
+  +flex
+  width: 100vw
+  height: 100px
+  padding-left: 5%
+  padding-right: 5%
+  padding-top: 45px
+
+  h1
+    flex: 0 0 auto
   
+  ul 
+    flex: 0 0 auto
+
+  ul li
+    display: inline
+
+  li
+    padding-left: 35px
+
+  #login
+    position: absolute
+    top: 0
+    right: 5%
+    width: auto
+    height: 25px
+    padding: 5px 10px
+
+
 
 /* OBJECTS -> For styling objects */
 /* Includes cosmetic styles like color, typography, and borders */
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
 #nav 
+
+  h1
+    color: $lime
+    font-size: $bx1
+    letter-spacing: 0.15em
+
+  li
+    @extend .sweet-m
+    font-size: $sx1
+    color: $lime
+    text-transform: uppercase
+    letter-spacing: 0.05em
+
+  #login
+    @extend .chron-d
+    font-size: $sx2
+    text-transform: inherit
+    letter-spacing: 0.1em
+    color: $white
+    background-color: $lime

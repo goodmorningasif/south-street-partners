@@ -14,17 +14,6 @@
 
 	get_header(); ?>
 
-<!-- ==== Section: Nav ==== -->
-<section id="nav">
-	<h1>South Street Partners</h1>
-	<ul>
-	  <li>About</li>
-	  <li>Investments</li>
-	  <li>Contact</li>
-	  <li>Press</li>
-	</ul>
-	<a href="">Investor Login</a>
-</section>
 
 <!-- ==== Section: Main ==== -->
 <section id="main">
