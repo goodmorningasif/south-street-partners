@@ -1,0 +1,57 @@
+/*  _foot.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#foot
+  padding: 50px 5%
+
+  address
+    margin-top: 5px
+
+  svg
+    width: 25px
+
+.info
+  +flex(flex, flex-start, flex-start, wrap)
+
+  .col-1, .col-2
+    flex: 0 0 auto
+    margin-right: 50px
+
+.contact
+  +flex
+  margin-top: 30px
+
+.terms
+  text-align: right
+      
+
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#foot
+  background-color: $darkgrey
+
+  .info
+    h1
+      @extend .chron-d
+      text-transform: initial
+      color: $white
+      font-size: $bx1
+
+  address, .terms
+    @extend .sweet-m
+    text-transform: uppercase
+    color: $white
+    font-size: $sx3
+    line-height: 1.8em
+  
+
+
+
+

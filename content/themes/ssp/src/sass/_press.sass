@@ -1,0 +1,72 @@
+/*  _press.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#press
+  +flex
+  margin-left: 5%
+  margin-right: 5%
+  margin-top: 100px
+  
+  header
+    flex: 1 0 100%
+    +flex
+    margin-bottom: 30px
+
+    h2
+      flex: 0 0 20%
+
+  article.clipping
+    flex: 0 0 475px
+    margin-bottom: 40px
+
+    .date
+      margin-bottom: 10px
+
+    h2
+      margin-top: 15px
+      margin-bottom: 15px
+
+    p
+      margin-top: 20px
+
+.line
+  width: 48px
+  height: 2px
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#press
+  header
+    h2 
+      @extend .chron-d
+      font-size: $bx3
+      color: $lime
+      text-transform: initial
+  
+  article.clipping
+    .date
+      @extend .sweet-m
+      font-size: $sx2
+      letter-spacing: 0.05em
+
+    h2
+      letter-spacing: 0.05em
+
+    p 
+      font-size: $sx1
+      line-height: 1.5em
+
+      a 
+        font-size: $sx2
+        color: $lime
+        margin-left: 5px
+
+
+.line
+  background-color: $lime

@@ -1,0 +1,84 @@
+/*  _contact.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#contact
+  margin-left: 5%
+  margin-right: 5%
+
+  header
+    flex: 1 0 100%
+    +flex
+
+    h2
+      flex: 0 0 20%
+
+    p
+      flex: 0 0 80%
+      padding-right: 20%
+  
+  form
+    +flex
+    margin-top: 50px
+
+    input, textarea
+      width: 100%
+
+    textarea
+      padding-top: 20px
+
+    #f-fullname, #f-email, #f-tel
+      height: 60px
+      margin-bottom: 15px
+
+
+    #f-submit
+      width: 80px
+      margin-left: calc(100% - 80px)
+      margin-top: 10px
+      padding: 5px
+      
+
+    .col-1
+      flex: 0 0 49%
+
+    .col-2
+      flex: 0 0 49%
+
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#contact
+  header
+    h2 
+      @extend .chron-d
+      font-size: $bx3
+      color: $lime
+      text-transform: initial
+
+    p
+      @extend .goth-b
+      font-size: $sx1
+      line-height: 1.6em
+
+  form
+    #f-fullname, #f-email, #f-tel, #f-notes
+      border-left: none
+      border-right: none
+      border-bottom: none
+      border-top: 2px solid $lime
+
+    #f-submit
+      border: 2px solid $lime
+      background-color: $white
+      text-transform: uppercase
+
+    #f-fullname, #f-email, #f-tel, #f-notes, #f-submit
+      +placeholder
+        color: $black
+        text-transform: uppercase

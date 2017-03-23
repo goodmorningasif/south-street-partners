@@ -16,7 +16,7 @@ h1, h2, h3, h5, a
 
 p
   @extend .goth-b
-  
+
 
 html 
   box-sizing: border-box
@@ -25,6 +25,9 @@ html
   box-sizing: inherit
 
 body
+  +desktop
+	  width: 1300px
+	  margin: 0 auto
 
 img
   width: 100%
@@ -32,8 +35,17 @@ img
 
 /* Styles ... */
 
+
 @import 'nav'
 
 @import 'main'
 
 @import 'about'
+
+@import 'investments'
+
+@import 'press'
+
+@import 'contact'
+
+@import 'foot' 
