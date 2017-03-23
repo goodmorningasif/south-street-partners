@@ -1,1 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.47 13.5"><defs><style>.cls-1{fill:#619f42;}</style></defs><title>arrow</title><g id="Layer_2" data-name="Layer 2"><g id="Layer_1-2" data-name="Layer 1"><path class="cls-1" d="M13.47,7.26,0,13.5V11.75l10.8-5L0,1.77V0L13.47,6.26Z"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13.47 13.5">
+	<defs>
+		<style>
+			.arrow-cls-1{fill:#619F42;}
+		</style>
+	</defs>
+	<path class="arrow-cls-1" d="M13.47,7.26,0,13.5V11.75l10.8-5L0,1.77V0L13.47,6.26Z"/>
+</svg>

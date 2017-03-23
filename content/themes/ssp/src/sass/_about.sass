@@ -1,0 +1,110 @@
+/*  _about.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#about
+  +flex
+  margin-left: 5%
+  margin-right: 5%
+
+  header
+    flex: 1 0 100%
+    +flex
+
+    h2
+      flex: 0 0 20%
+
+    p
+      flex: 0 0 80%
+  
+
+#directory
+  flex: 0 0 50%
+  +flex(flex, flex-start, flex-start, wrap)
+  margin-top: 50px
+  // padding-right: 100px
+
+  h3
+    flex: 1 0 100%
+    margin-bottom: 25px
+
+
+.list
+  flex: 0 0 35%
+  margin-right: 50px
+
+  h2
+    margin-top: 10px
+  
+  p 
+    margin-top: 5px
+
+
+#biography
+  flex: 0 0 50%
+  +flex
+  margin-top: 80px
+  margin-bottom: 80px
+
+  .arrow
+    flex: 0 0 15%
+  
+  #writeups
+    flex: 0 0 70%
+
+
+.arrow
+  svg 
+    width: 15px
+    height: 15px
+
+
+.arrow#left
+  transform: rotate(180deg)
+  padding-bottom: 125px
+  padding-left: 30px
+
+
+.arrow#right
+  padding-top: 125px
+  padding-left: 30px
+
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#about
+  header
+    h2 
+      @extend .chron-d
+      font-size: $bx3
+      color: $lime
+      text-transform: initial
+
+    p
+      font-size: $bx2
+      letter-spacing: 0.1em
+      line-height: 1.6em
+      text-transform: uppercase
+       
+
+#directory
+  h3
+    font-size: $sx1
+
+
+  .list
+    border-top: 2px solid $lime
+
+    p
+      font-size: $sx2
+      text-transform: uppercase 
+
+
+#biography
+  font-size: $sx1
+  line-height: 1.7em

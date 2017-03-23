@@ -17,62 +17,17 @@
 
 <!-- ==== Section: Main ==== -->
 <section id="main">
-  <p>South Street Partners is a boutique private real estate investment, management, and development firm focused on acquiring, managing, and strategically exiting opportunistic and value added real estate investments.</p>
-	<div id="slider">
-	  <div class="slide" id="0">
-	  </div>
-	</div>
+  <?php get_template_part('components/main'); ?>
 </section>
 
 <!-- ==== Section: About ==== -->
 <section id="about">
-	<p>South Street Partners has deployed over 400 million of capital into diverse asset classes and is Headquartered in Charlotte, NC and Charleston, Sc.</p>
-
-	<!-- == Section: Directory == -->
-	<section id="directory">
-	  <div class="list">
-	    <h2 id="0">Patrick Melton</h2>
-	    <p id="0">Managing Partner</p>
-	  </div>	
-	</section>
-
-	<!-- == Section: Biography == -->
-	<section id="biography">
-		<div class="arrow" id="left">
-		  <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
-		</div>
-		<div id="writeups">
-		  <p>Patrick is responsible for all aspects of South Street Partners, including acquisitions, sales, development and operations. Previously, Patrick was a Partner at Discovery Land Company, a developer of high-end private golf communities. Patrick’s focus was acquisitions, finance, project management, and operations oversight across the entire portfolio of communities. Prior to joining Discovery, Patrick served in a number of roles at Terrabrook, a real estate development, investment, and management subsidiary of Westbrook Partners. During this time, Terrabrook was the largest owner and developer of master planned communities in the country. Prior to Terrabrook, Patrick began his real estate career in Washington, DC as a consultant with Ernst &amp; Young’s Kenneth Leventhal Real Estate Group and KPMG's Real Estate, Mortgage and Hospitality Group.</p>
-		</div>
-		<div class="arrow" id="left">
-			<?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
-		</div>
-	</section>
+  <?php get_template_part('components/about'); ?>
 </section>
 
 <!-- ==== Section: Investments -->
 <section id="investments">
-	<p>Collectively, the South Street team has over forty years combined experience and has been involved in over $1.5 billion of real estate transactions with over $750 million in equity invested including $500 million of equity invested in the development, acquisition and management of fifteen luxury residential club developments.</p>
-  
-  <!-- == Section: Ongoing == -->
-	<section id="ongoing">
-		<article id="0">
-		  <div class="content">
-				<h1>Kiawah Island</h1>
-				<p>World Renowned Island Community In South Carolina</p>
-			</div>
-		</article>
-	</section>
-
-  <!-- == Section: Realized == -->
-	<section id="realized">
-		<article id="0">
-		  <div class="content">
-				<h1>Kiawah Island</h1>
-				<p>World Renowned Island Community In South Carolina</p>
-			</div>
-		</article>
-	</section>
+  <?php get_template_part('components/investments') ?>
 </section>
 
 <!-- ==== Section: Press ==== -->

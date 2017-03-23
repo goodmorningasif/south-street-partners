@@ -1,0 +1,58 @@
+/*  _nav.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+
+#main
+  width: 100vw
+  height: 700px
+  margin-bottom: -400px
+
+  #tagline 
+    height: auto
+    margin-top: 450px
+    z-index: 10
+    padding: 30px 5% 40px
+
+    p
+      max-width: 900px
+
+  #slider
+    height: 100%
+    margin-top: -600px
+    
+    .slide
+      z-index: -1
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+#main
+  
+  #tagline
+    background-color: $white
+
+    p
+      @extend .chron-d
+      font-size: $bx3
+      color: $lime
+      letter-spacing: 0.05em
+      line-height: 1.2em
+
+
+  #slider
+    +flex(flex, space-between, flex-start, nowrap)
+    width: 100%
+    height: 100%
+    overflow: hidden
+    z-index: -1
+
+    .slide
+      +img
+      background-image: url('#{$uri}/assets/img_01.png')
+      flex: 1 0 100%
+      height: 100%
