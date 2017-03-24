@@ -1,0 +1,138 @@
+/*  _property.sass */
+
+/* PAGE CONTEXT -> For positioning items */
+/* includes positioning styles like display, padding, margin, height */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+
+#property
+  +flex
+  width: 100%
+  height: 100%
+  margin-bottom: 100px
+  +desktop
+    +maximum
+
+  
+  #thumbs, #details
+    flex: 0 0 49%
+    padding-top: 75px
+
+  #thumbs
+    padding-left: 100px
+    padding-right: 50px
+
+  #details
+    padding-right: 50px
+  
+.thumb
+  width: 100%
+  padding-top: 100%
+  margin-bottom: 40px
+
+#details
+  article
+    margin-bottom: 50px
+
+  h2
+    width: 350px
+    margin-top: 5px
+    margin-bottom: 25px
+
+.bullets
+  width: 400px
+  margin-bottom: 10px
+
+  .point
+    padding-top: 10px
+
+  .subpoint
+    padding-top: 5px
+
+
+#controls
+  +flex(flex, flex-start, flex-start, wrap)
+
+  .visit
+    flex: 1 0 100%
+    margin-bottom: 50px
+
+    > a
+      width: inherit
+      padding: 10px 15px
+
+  svg
+    width: 12px
+    height: 12px
+  
+  .back
+    svg
+      transform: rotate(180deg)
+  
+  .back, .next
+    height: 100%
+    padding-top: 10px
+    padding-bottom: 15px
+
+    span
+      padding-left: 20px
+      padding-right: 20px
+
+
+
+/* OBJECTS -> For styling objects */
+/* Includes cosmetic styles like color, typography, and borders */
+/* INCEPTION RULE: DO NOT nest more than 4  */
+
+
+.thumb#th-0
+  +img
+  background-image: url('#{$uri}/assets/img_07.png')
+
+.thumb#th-1
+  +img
+  background-image: url('#{$uri}/assets/img_08.png')
+
+#details
+  h1
+    @extend .chron-d
+    font-size: $bx3
+    text-transform: initial
+    color: $lime
+
+  h2
+    font-size: $sx1
+    color: $lime
+    line-height: 1.5em
+
+.bullets
+  border-top: 2px solid $lime
+  text-transform: uppercase
+
+  .point
+    @extend .sweet-m
+    font-size: $sx1
+    letter-spacing: 0.05em
+
+  .subpoint
+    @extend .sweet-m
+    font-size: $sx2
+    letter-spacing: 0.05em
+
+#controls
+  .visit
+    > a
+      font-size: $sx2
+      text-transform: uppercase
+      border: 2px solid $lime
+
+  span
+    @extend .sweet-m
+    font-size: $sx1
+    color: $lime
+    text-transform: uppercase
+    letter-spacing: 0.05em
+
+  .back
+    border-right: 2px solid $lime
+

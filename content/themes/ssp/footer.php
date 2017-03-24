@@ -13,3 +13,14 @@
  */
 
 ?>
+
+<!-- ==== Section: Footer ==== -->
+<section id="foot">
+  <?php get_template_part('components/foot'); ?>
+</section>
+
+
+</body><!-- end -->
+</html>
+
+<?php wp_footer(); ?>

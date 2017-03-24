@@ -2,9 +2,10 @@
 
 @import 'reset'
 
+@import 'mixins'
+
 @import 'variables'
 
-@import 'mixins'
 
 /* SITE CONTEXT -> Global styles */
 
@@ -25,9 +26,6 @@ html
   box-sizing: inherit
 
 body
-  +desktop
-	  width: 1300px
-	  margin: 0 auto
 
 img
   width: 100%
@@ -48,4 +46,8 @@ img
 
 @import 'contact'
 
-@import 'foot' 
+@import 'foot'
+
+@import 'preview' 
+
+@import 'property' 

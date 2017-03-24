@@ -40,12 +40,6 @@
   <?php get_template_part('components/contact'); ?>
 </section>
 
-<!-- ==== Section: Footer ==== -->
-<section id="foot">
-  <?php get_template_part('components/foot'); ?>
-</section>
-
-
 
 <?php
 
