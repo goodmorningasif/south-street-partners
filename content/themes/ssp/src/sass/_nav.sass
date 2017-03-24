@@ -12,24 +12,37 @@
   padding-left: 5%
   padding-right: 5%
   padding-top: 45px
+  margin-bottom: 30px
+
+  +tablet
+    margin-bottom: 0
 
   +desktop
     +maximum
     padding-left: 0
     padding-right: 0
 
-
   h1
-    flex: 0 0 auto
+    flex: 1 0 100%
+
+    +tablet
+      flex: 0 0 auto
   
-  ul 
-    flex: 0 0 auto
+  ul
+    flex: 1 0 100%
+
+    +tablet 
+      flex: 0 0 auto
 
   ul li
     display: inline
 
   li
-    padding-left: 35px
+    padding-right: 14px
+
+    +tablet
+      padding-right: 0
+      padding-left: 35px
 
   #login
     position: absolute

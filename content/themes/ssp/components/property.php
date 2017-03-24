@@ -38,7 +38,7 @@
 		  <span id="back">Back</san>
 		</div>
 		<div class="next">
-		  <span id="next">Next Investment</span>
+		  <span id="next">Next <span class="toggle">Investment</span></span>
 		  <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
 		</div>
 	</section>
