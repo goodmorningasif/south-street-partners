@@ -7,27 +7,50 @@
 
 #main
   width: 100vw
-  height: 700px
-  margin-bottom: -400px
+  height: 100%
+  margin-bottom: 50px
+  
+  +tablet
+    height: 700px
+    margin-bottom: -400px
 
   #tagline 
     height: auto
-    margin-top: 450px
     z-index: 10
     padding: 30px 5% 40px
+
+    +tablet
+      margin-top: 450px
+
 
     p
       max-width: 900px
 
       +desktop
-        +maximum()
+        +maximum
 
   #slider
+    position: relative
+    width: 100%
     height: 100%
-    margin-top: -600px
-    
+    z-index: -1
+
+    +tablet
+      margin-top: -600px
+
+
     .slide
+      position: absolute
+      top: 0
+      left: 0
+      height: 60vh
+      width: 100%
       z-index: -1
+      opacity: 0
+      transition: opacity 1.5s ease-in-out
+
+      +tablet
+        height: 100%
 
 
 /* OBJECTS -> For styling objects */
@@ -41,21 +64,15 @@
 
     p
       @extend .chron-d
-      font-size: $bx3
+      font-size: $bx1
       color: $lime
       letter-spacing: 0.05em
       line-height: 1.2em
 
+      +tablet
+        font-size: $bx3
 
-  #slider
-    +flex(flex, space-between, flex-start, nowrap)
-    width: 100%
-    height: 100%
-    overflow: hidden
-    z-index: -1
+.slide
+  +img
 
-    .slide
-      +img
-      background-image: url('#{$uri}/assets/img_01.png')
-      flex: 1 0 100%
-      height: 100%
+

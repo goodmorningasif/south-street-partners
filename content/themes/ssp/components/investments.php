@@ -1,8 +1,8 @@
 <?php
   /**
   * Section =>  Investments
-  */ 
-
+  */
+ 
 ?>
 
 <header>
@@ -13,35 +13,39 @@
 <!-- == Section: Ongoing == -->
 <section id="ongoing">
   <h3>Ongoing</h3> 
-
-	<article id="on-0">
+	<?php 
+	  $count=0;
+	  if( have_rows('ongoing', '2') ) :
+	  	while ( have_rows('ongoing', '2') ) : the_row();
+	    $preview = get_sub_field('on-preview');
+	?>
+	<article class="investment" id="on-<?php echo $count; ?>"
+	  style="background-image: url('<?php echo $preview['url']; ?>')">
 	  <div class="content">
-			<h1>Kiawah Island</h1>
-			<p>World Renowned Island Community In South Carolina</p>
+			<h1><?php echo get_sub_field('on-title'); ?></h1>
+			<p><?php echo get_sub_field('on-tagline'); ?></p>
 		</div>
 	</article>
-
-	<article id="on-1">
-	  <div class="content">
-			<h1>Kiawah Island</h1>
-			<p>World Renowned Island Community In South Carolina</p>
-		</div>
-	</article>
+<?php $count++;endwhile;endif; ?>
 </section>
 
 <!-- == Section: Realized == -->
 <section id="realized">
 	<h3>Realized</h3>
-	<article id="re-0">
+	<?php 
+	  $count=0;
+	  if( have_rows('realized', '2') ) :
+	  	while ( have_rows('realized', '2') ) : the_row();
+	    $preview = get_sub_field('re-preview');
+	?>
+	<article class="investment" id="re-<?php echo $count; ?>"
+	  style="background-image: url('<?php echo $preview['url']; ?>')">
 	  <div class="content">
-			<h1>Kiawah Island</h1>
-			<p>World Renowned Island Community In South Carolina</p>
+			<h1><?php echo get_sub_field('re-title'); ?></h1>
+			<p><?php echo get_sub_field('re-tagline'); ?></p>
 		</div>
 	</article>
-	<article id="re-1">
-	  <div class="content">
-			<h1>Kiawah Island</h1>
-			<p>World Renowned Island Community In South Carolina</p>
-		</div>
-	</article>
+<?php $count++;endwhile;endif; ?>
 </section>
+
+<!-- background-image: url('#{$uri}/assets/img_02.png') -->

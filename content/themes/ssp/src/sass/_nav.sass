@@ -60,17 +60,25 @@
 
 #nav 
 
-  h1
+  h1 a
     color: $lime
     font-size: $bx1
     letter-spacing: 0.15em
+    transition: color 0.5s
 
-  li
+    &:hover 
+      color: $black
+
+  li a
     @extend .sweet-m
     font-size: $sx1
     color: $lime
     text-transform: uppercase
     letter-spacing: 0.05em
+    transition: color 0.5s
+
+    &:hover
+      color: $black
 
   #login
     @extend .chron-d
@@ -79,3 +87,7 @@
     letter-spacing: 0.1em
     color: $white
     background-color: $lime
+    transition: background-color 0.5s
+
+    &:hover
+      background-color: $black

@@ -8,27 +8,22 @@
 <header>
   <h2>Press</h2>
 </header>
-
-<article class="clipping" id="cl-0">
-  <div class="date">02.18.17</div>
+<?php 
+  $count = 0;
+  $press = new WP_Query( 
+    array(
+      'post_type' => 'press',
+      'posts_per_page' => -1,
+      'order' => 'ASC'
+    )
+  );
+  while ( $press->have_posts() ) : $press->the_post();
+?>
+<article class="clipping" id="cl-<?php echo $count; ?>">
+  <div class="date"><?php echo get_field('date'); ?></div>
   <div class="line"></div>
-  <h2>The Post and Courier</h2>
+  <h2><?php the_title(); ?></h2>
   <div class="line"></div>
-  <p>An small blurb from the article can go here and here. An small blurb from the article can go here and here... <a href="#">READ MORE</a></p>
+  <p><?php echo get_field('pull_quote'); ?>... <a href="<?php echo get_field('pub_link'); ?>">READ MORE</a></p>
 </article>
-
-<article class="clipping" id="cl-1">
-  <div class="date">02.18.17</div>
-  <div class="line"></div>
-  <h2>The Post and Courier</h2>
-  <div class="line"></div>
-  <p>An small blurb from the article can go here and here. An small blurb from the article can go here and here... <a href="#">READ MORE</a></p>
-</article>
-
-<article class="clipping" id="cl-2">
-  <div class="date">02.18.17</div>
-  <div class="line"></div>
-  <h2>The Post and Courier</h2>
-  <div class="line"></div>
-  <p>An small blurb from the article can go here and here. An small blurb from the article can go here and here... <a href="#">READ MORE</a></p>
-</article>
+<?php $count++;endwhile; wp_reset_query(); ?>

@@ -22,8 +22,11 @@
       flex: 0 0 20%
 
   article.clipping
-    flex: 0 0 475px
+    flex: 0 0 95%
     margin-bottom: 40px
+
+    +tablet
+      flex: 0 0 45%
 
     .date
       margin-bottom: 10px
@@ -69,6 +72,10 @@
         font-size: $sx2
         color: $lime
         margin-left: 5px
+        transition: color 0.3s
+
+        &:hover
+          color: $black
 
 
 .line

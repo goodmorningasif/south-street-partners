@@ -64,7 +64,7 @@
   +flex(flex, flex-start, flex-start, wrap)
 
   .visit
-    flex: 1 0 100%
+    flex: 1 0 100% 
     margin-bottom: 50px
 
     > a
@@ -101,13 +101,8 @@
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
 
-.thumb#th-0
+.thumb
   +img
-  background-image: url('#{$uri}/assets/img_07.png')
-
-.thumb#th-1
-  +img
-  background-image: url('#{$uri}/assets/img_08.png')
 
 #details
   h1
@@ -129,6 +124,7 @@
     @extend .sweet-m
     font-size: $sx1
     letter-spacing: 0.05em
+    line-height: 1.5em
 
   .subpoint
     @extend .sweet-m
@@ -141,6 +137,10 @@
       font-size: $sx2
       text-transform: uppercase
       border: 2px solid $lime
+      transition: all 0.3s
+
+      &:hover
+        background-color: $lime
 
   #back, #next
     @extend .sweet-m

@@ -2,7 +2,6 @@
   /**
   * Section =>  About
   */ 
-
 ?>
 
 <header>
@@ -13,14 +12,22 @@
 <!-- == Section: Directory == -->
 <section id="directory">
   <h3>Meet The Team</h3>
-  <div class="list">
-    <h2 id="0">Patrick Melton</h2>
-    <p id="0">Managing Partner</p>
+  <?php 
+    $count = 0;
+    $team = new WP_Query( 
+      array( 
+        'post_type' => 'team', 
+        'posts_per_page' => -1, 
+        'order' => 'ASC'
+        )
+      );
+    while ( $team->have_posts() ) : $team->the_post();
+  ?>
+  <div class="list" id="li-<?php echo $count; ?>">
+    <h2><?php the_title(); ?></h2>
+    <p><?php echo get_field('team_title'); ?></p>
   </div>
-   <div class="list">
-    <h2 id="0">Patrick Melton</h2>
-    <p id="0">Managing Partner</p>
-  </div>
+  <?php $count++;endwhile; wp_reset_query(); ?>
 </section>
 
 <!-- == Section: Biography == -->
@@ -29,9 +36,26 @@
 	  <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
 	</div>
 	<div id="writeups">
-	  <p>Patrick is responsible for all aspects of South Street Partners, including acquisitions, sales, development and operations. Previously, Patrick was a Partner at Discovery Land Company, a developer of high-end private golf communities. Patrick’s focus was acquisitions, finance, project management, and operations oversight across the entire portfolio of communities. Prior to joining Discovery, Patrick served in a number of roles at Terrabrook, a real estate development, investment, and management subsidiary of Westbrook Partners. During this time, Terrabrook was the largest owner and developer of master planned communities in the country. Prior to Terrabrook, Patrick began his real estate career in Washington, DC as a consultant with Ernst &amp; Young’s Kenneth Leventhal Real Estate Group and KPMG's Real Estate, Mortgage and Hospitality Group.</p>
+  <?php 
+    $count = 0;
+    $team = new WP_Query( 
+      array( 
+        'post_type' => 'team', 
+        'posts_per_page' => -1, 
+        'order' => 'ASC'
+        )
+      );
+    while ( $team->have_posts() ) : $team->the_post();
+  ?>
+    <div id="wr-<?php echo $count; ?>" class="writeup">
+  	  <p><?php the_content(); ?></p>
+    </div>
+
+  <?php $count++;endwhile; wp_reset_query(); ?>
+
 	</div>
 	<div class="arrow" id="right">
 		<?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
 	</div>
+
 </section>

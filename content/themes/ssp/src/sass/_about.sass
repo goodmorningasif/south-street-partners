@@ -13,20 +13,33 @@
     +maximum
 
   header
-    flex: 1 0 100%
     +flex
+    flex: 1 0 100%
 
     h2
-      flex: 0 0 20%
+      flex: 1 0 100%
+
+
+      +tablet
+        flex: 0 0 20%
 
     p
-      flex: 0 0 80%
+      flex: 0 0 100%
+      padding-top: 40px
+
+      +tablet
+        flex: 0 0 80%
+        padding-top: 0
   
 
 #directory
-  flex: 0 0 50%
   +flex(flex, flex-start, flex-start, wrap)
+  flex: 0 0 100%
   margin-top: 50px
+
+  +tablet
+    flex: 0 0 50%
+
 
   h3
     flex: 1 0 100%
@@ -35,7 +48,10 @@
 
 .list
   flex: 0 0 35%
-  margin-right: 50px
+  margin-right: 20px
+
+  +tablet
+    margin-right: 50px
 
   h2
     margin-top: 10px
@@ -43,18 +59,41 @@
   p 
     margin-top: 5px
 
+.list:nth-child(n+4)
+  margin-top: 50px
 
 #biography
-  flex: 0 0 50%
+  flex: 0 0 100%
   +flex
   margin-top: 80px
   margin-bottom: 80px
 
+  +tablet
+    flex: 0 0 50%
+
   .arrow
-    flex: 0 0 15%
+    display: none
+
+    +tablet
+      display: initial
+      flex: 0 0 15%
   
   #writeups
-    flex: 0 0 70%
+    flex: 0 0 100%
+    height: 500px
+    position: relative
+
+    +tablet
+      flex: 0 0 70%
+
+    .writeup
+      position: absolute
+      height: 100%
+      width: 100%
+      top: 0
+      left: 0
+      opacity: 0
+      transition: opacity 0.5s ease-in-out
 
 
 .arrow
@@ -101,11 +140,21 @@
 
   .list
     border-top: 2px solid $lime
+  
+    &:hover
+      h2
+        color: $lime
+      p
+        color: $lime
 
     p
       font-size: $sx2
+      line-height: 1.5em
       text-transform: uppercase 
-
+      transition: color 0.3s
+  
+    h2 
+      transition: color 0.3s
 
 #biography
   font-size: $sx1
