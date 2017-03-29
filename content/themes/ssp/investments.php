@@ -5,11 +5,18 @@
 
 	get_header(); 
   
-  if ( !empty( $_GET['prop'] ) ) {
+  if ( !empty( $_GET['prop'] ) ) 
 	  $prop = $_GET['prop'];
-  } else {
+  else
   	$prop = 0;
-  }
+  
+  // Variables
+  $countProps = wp_count_posts( $post_type = 'properties' );
+  $totalProps = $countProps->publish;
+  $next = ( $prop + 1 >= $totalProps ? 0 : $prop + 1);
+  $back = ( $prop - 1 < 0 ? $totalProps - 1 : $prop - 1 );
+  
+  // Query + loop
   function queryPosts($num=0) {
   	return new WP_Query( 
 			array (
@@ -21,6 +28,7 @@
 			)
 		);
   }
+
   $investment = queryPosts($prop); 
 	while ( $investment->have_posts() ) : $investment->the_post();
 	  $main = get_field('main_image');
@@ -35,7 +43,6 @@
 
 <!-- ==== Section: Property ==== -->
 <section id="property">
-
 	<!-- == Section: Thumbs == -->
 	<section id="thumbs">
 	  <div class="thumb" id="th-0"
@@ -51,12 +58,16 @@
 			<h2><?php get_field('desc'); ?></h2>
 			<?php if ( have_rows('details') ) : while ( have_rows('details') ) : the_row(); ?>
 			<div class="bullets">
-			  <p class="point"><?php echo get_sub_field('points'); ?></p>
+			  <p class="point">
+			    <?php echo get_sub_field('points'); ?>
+		    </p>
 			  <?php if ( have_rows('sub_details') ) : while ( have_rows('sub_details') ) : the_row(); ?>
-				  <p class="subpoint"><?php echo get_sub_field('sub_points'); ?></p>
+				  <p class="subpoint">
+				    <?php echo get_sub_field('sub_points'); ?>
+			    </p>
 				<?php endwhile;endif; ?>
 			</div>
-      <?php endwhile;endif; ?>
+	    <?php endwhile;endif; ?>
 	  </article>
 
 		<!-- == Section: Controls == -->
@@ -65,25 +76,20 @@
 			  <a target="_blank" href="<?php echo get_field('prop_link') ?>">Visit</a>
 		  </div>
 		  <div class="back">
-			  <a id="back-prop" href="?prop=<?php echo ($prop - 1); ?>" ><?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
-			  <span id="back">Back</a></san>
+			  <a id="back-prop" href="?prop=<?php echo $back; ?>" >
+			    <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
+			    <span id="back">Back</span>
+			  </a>
 			</div>
 			<div class="next">
-			  <a id="next-prop" href="?prop=<?php echo ($prop + 1); ?>"><span id="next">Next <span class="toggle">Investment</span></span>
-			  <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
-			</a></div>
+			  <a id="next-prop" href="?prop=<?php echo $next; ?>">
+			    <span id="next">Next <span class="toggle">Investment</span></span>
+			    <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
+			  </a>
+			</div>
 		</section>
 	</section>
 </section>
 <?php endwhile; ?>
-<?php
 
-/**
-*  Console Logs
-* 
-* echo "<script>console.log('".$GLOBALS['maps'].", outputs map');</script>";
-*/  
-
-
-?>
 <?php get_footer();
