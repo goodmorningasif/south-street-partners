@@ -17,19 +17,36 @@
   $back = ( $prop - 1 < 0 ? $totalProps - 1 : $prop - 1 );
   
   // Query + loop
-  function queryPosts($num=0) {
-  	return new WP_Query( 
-			array (
-		    'post_type' => 'properties',
-		    'posts_per_page' => 1,
-		    'offset' => $num,
-		    'order' => 'ASC',
-		    'offset'
-			)
-		);
+  if ( !empty( $_GET['id'] ) ) {
+    $id = $_GET['id'];
+	  function queryPosts($id=7) {
+	  	return new WP_Query( 
+				array (
+			    'post_type' => 'properties',
+			    'p' => $id,
+				)
+			);
+	  }
+
+	  $investment = queryPosts($id); 
+
+  } else {
+	  function queryPosts($num=0) {
+	  	return new WP_Query( 
+				array (
+			    'post_type' => 'properties',
+			    'posts_per_page' => 1,
+			    'offset' => $num,
+			    'order' => 'ASC'
+				)
+			);
+	  }
+
+	  $investment = queryPosts($prop); 
+  	
   }
 
-  $investment = queryPosts($prop); 
+
 	while ( $investment->have_posts() ) : $investment->the_post();
 	  $main = get_field('main_image');
 	  $thumb1 = get_field('thumb_1');

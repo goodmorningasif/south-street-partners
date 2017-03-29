@@ -42,7 +42,8 @@
 	  if( have_rows('realized', '2') ) :
 	  	while ( have_rows('realized', '2') ) : the_row();
 	    $preview = get_sub_field('re-preview');
-	    $post_obj = get_sub_field('on-link');
+	    $post_obj = get_sub_field('re-link');
+	    $id = $post_obj->ID;
 	?>
 	<article class="investment" id="re-<?php echo $count; ?>"
 	  style="background-image: url('<?php echo $preview['url']; ?>')">
@@ -54,6 +55,4 @@
 		</a>
 	</article>
 <?php $count++;endwhile;endif; ?>
-</section>
-
-<!-- background-image: url('#{$uri}/assets/img_02.png') -->
+</section>git 
