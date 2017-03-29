@@ -55,4 +55,4 @@
 		</a>
 	</article>
 <?php $count++;endwhile;endif; ?>
-</section>git 
+</section>

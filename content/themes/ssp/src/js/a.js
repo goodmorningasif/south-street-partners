@@ -19,6 +19,27 @@ $j(document).ready(function(){
   //   console.log('gets params', prop)
   //   queryProp(prop);
   // }
+  
+  // Scroll down feature
+  $j('#nav-about').on('click', function(e) {
+    e.preventDefault();
+    scroll('about');
+  });
+
+  $j('#nav-investments').on('click', function(e) {
+    e.preventDefault();
+    scroll('investments');
+  });
+
+  $j('#nav-contact').on('click', function(e) {
+    e.preventDefault();
+    scroll('contact');
+  });
+
+  $j('#nav-press').on('click', function(e) {
+    e.preventDefault();
+    scroll('press');
+  });
 
 
 });
