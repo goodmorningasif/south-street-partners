@@ -19,10 +19,12 @@
 	  	while ( have_rows('ongoing', '2') ) : the_row();
 	    $preview = get_sub_field('on-preview');
 	    $post_obj = get_sub_field('on-link');
+	    $id = $post_obj->ID;
 	?>
+	
 	<article class="investment" id="on-<?php echo $count; ?>"
 	  style="background-image: url('<?php echo $preview['url']; ?>')">
-	  <a href="/investments">
+	  <a href="<?php echo $GLOBALS['root']; ?>/investments/?id=<?php echo $id; ?>">
 	    <div class="content">
 				<h1><?php echo get_sub_field('on-title'); ?></h1>
 				<p><?php echo get_sub_field('on-tagline'); ?></p>
@@ -44,7 +46,7 @@
 	?>
 	<article class="investment" id="re-<?php echo $count; ?>"
 	  style="background-image: url('<?php echo $preview['url']; ?>')">
-	  <a href="/investments">
+	  <a href="<?php echo $GLOBALS['root']; ?>/investments/?id=<?php echo $id; ?>">
 		  <div class="content">
 				<h1><?php echo get_sub_field('re-title'); ?></h1>
 				<p><?php echo get_sub_field('re-tagline'); ?></p>
