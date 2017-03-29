@@ -71,6 +71,10 @@
       width: inherit
       padding: 10px 15px
 
+      +tiny
+        display: block
+        text-align: center
+
   svg
     width: 12px
     height: 12px
@@ -78,11 +82,15 @@
   .back
     svg
       transform: rotate(180deg)
+
   
   .back, .next
     height: 100%
     padding-top: 10px
     padding-bottom: 15px
+
+    +tiny
+      flex: 0 0 50%
 
     #back, #next
       padding-left: 20px
@@ -93,6 +101,10 @@
 
       +tablet
         display: inline-block
+
+  .next
+    +tiny
+      text-align: right
 
 
 
