@@ -48,15 +48,20 @@
 
 
 	while ( $investment->have_posts() ) : $investment->the_post();
-	  $main = get_field('main_image');
-	  $thumb1 = get_field('thumb_1');
-	  $thumb2 = get_field('thumb_2');
+			  $main = get_field('main_image');
 ?>
 
 <!-- ==== Section: Preview ==== -->
 <section id="preview" 
   style="background-image: url(<?php echo $main['url']; ?>)">
 </section>
+
+<?php
+	  if ( have_rows('the_repeater') ):
+	  	while ( have_rows('the_repeater' ) ) : the_row(); 
+			  $thumb1 = get_sub_field('thumb_1');
+			  $thumb2 = get_sub_field('thumb_2');
+?>
 
 <!-- ==== Section: Property ==== -->
 <section id="property">
@@ -71,8 +76,8 @@
 	<!-- == Section: Details == -->
 	<section id="details">
 	  <article>
-			<h1><?php the_title(); ?></h1>
-			<h2><?php get_field('desc'); ?></h2>
+			<h1><?php echo get_sub_field('prop_title'); ?></h1>
+			<h2><?php echo get_sub_field('desc'); ?></h2>
 			<?php if ( have_rows('details') ) : while ( have_rows('details') ) : the_row(); ?>
 			<div class="bullets">
 			  <p class="point">
@@ -107,6 +112,5 @@
 		</section>
 	</section>
 </section>
-<?php endwhile; ?>
-
+<?php endwhile;endif;endwhile; ?>
 <?php get_footer();
