@@ -7,18 +7,29 @@
 $j = jQuery.noConflict();
 
 $j(document).ready(function(){
-   
+
   // initialize Fader
-	faderAbout.fadeFxn();
-  
-  // Initialize Investments 
-  // var loc = window.location;
-  // if ( loc.pathname.indexOf('investments') !== -1 ) {
-  //   var prop;
-  //   getUrlParams('prop') ? prop = getUrlParams('prop') : prop = 0;
-  //   console.log('gets params', prop)
-  //   queryProp(prop);
-  // }
+  faderAbout.fadeFxn();
+
+  // if investments, start scroll monitoring
+  var currentPath = window.location.pathname;
+  if (currentPath.indexOf('investments') !== -1){
+
+    var navBar = $j('.back').offset();
+
+    $j(window).scroll(function(){
+
+      var scrollPosition = $j(window).scrollTop();
+
+      // Add sticky if scrollPosition under navBar div
+      if ( scrollPosition >= navBar.top){
+        $j('.back').attr('id', 'sticky');
+        $j('.next').attr('id', 'sticky');
+      } else if ( scrollPosition < navBar.top )  {
+        $j('#sticky').removeAttr('id');
+      }
+    });
+  }
   
   // Scroll down feature
   $j('#nav-about').on('click', function(e) {

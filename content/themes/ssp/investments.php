@@ -57,6 +57,8 @@
 </section>
 
 <?php
+    $count = 0;
+    $total = count( get_field('the_repeater') );
 	  if ( have_rows('the_repeater') ):
 	  	while ( have_rows('the_repeater' ) ) : the_row(); 
 			  $thumb1 = get_sub_field('thumb_1');
@@ -64,9 +66,13 @@
 ?>
 
 <!-- ==== Section: Property ==== -->
-<section id="property">
+				<?php if($count < $total - 1) : ?>
+<section class="property">
+        <?php else : ?>
+<section class="property" id="last">
+        <?php endif; ?>
 	<!-- == Section: Thumbs == -->
-	<section id="thumbs">
+	<section class="thumbs">
 	  <div class="thumb" id="th-0"
 	    style="background-image: url(<?php echo $thumb1['url']; ?>)"></div>
 	  <div class="thumb" id="th-1"
@@ -74,7 +80,7 @@
 	</section>
 
 	<!-- == Section: Details == -->
-	<section id="details">
+	<section class="details">
 	  <article>
 			<h1><?php echo get_sub_field('prop_title'); ?></h1>
 			<h2><?php echo get_sub_field('desc'); ?></h2>
@@ -89,14 +95,15 @@
 			    </p>
 				<?php endwhile;endif; ?>
 			</div>
-	    <?php endwhile;endif; ?>
+	    <?php ;endwhile;endif; ?>
 	  </article>
 
 		<!-- == Section: Controls == -->
-		<section id="controls">
+		<section class="controls">
 		  <div class="visit">
 			  <a target="_blank" href="<?php echo get_field('prop_link') ?>">Visit</a>
 		  </div>
+				<?php if($count === 0 ) : ?>
 		  <div class="back">
 			  <a id="back-prop" href="?prop=<?php echo $back; ?>" >
 			    <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
@@ -109,8 +116,9 @@
 			    <?php echo file_get_contents($GLOBALS['url'].'/assets/arrow.svg'); ?>
 			  </a>
 			</div>
+				<?php endif; ?>
 		</section>
 	</section>
 </section>
-<?php endwhile;endif;endwhile; ?>
+<?php $count++;endwhile;endif;endwhile; ?>
 <?php get_footer();

@@ -5,15 +5,18 @@
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
 
-#property
+.property
   +flex
   width: 100%
   height: 100%
-  margin-bottom: 100px
+
+  +tablet
+    padding-bottom: 30px
+
   +desktop
     +maximum
 
-  #thumbs
+  .thumbs
 
     +tablet
       flex: 0 0 50%
@@ -22,7 +25,7 @@
       padding-top: 75px
       padding-bottom: 0
 
-  #details
+  .details
     flex: 1 0 100%
     padding: 50px
 
@@ -40,7 +43,7 @@
     padding-top: 100%
     margin-bottom: 40px
 
-#details
+.details
   article
     margin-bottom: 50px
 
@@ -60,7 +63,7 @@
     padding-top: 5px
 
 
-#controls
+.controls
   +flex(flex, flex-start, flex-start, wrap)
 
   .visit
@@ -84,39 +87,63 @@
       transform: rotate(180deg)
 
   
-  .back, .next
-    height: 100%
-    padding-top: 10px
-    padding-bottom: 15px
+.back, .next
+  height: 100%
+  padding-top: 10px
+  padding-bottom: 15px
 
-    +tiny
-      flex: 0 0 50%
+  +tiny
+    flex: 0 0 50%
 
-    #back, #next
-      padding-left: 20px
-      padding-right: 20px
+.back
+  text-align: right
 
-    .toggle
-      display: none
+#back, #next
+  padding-left: 20px
+  padding-right: 20px
 
-      +tablet
-        display: inline-block
+.toggle
+  display: none
+
+  +tablet
+    display: inline-block
 
   .next
     +tiny
       text-align: right
 
+#sticky
+  position: fixed
+  top: 0
+  height: 60px
+  padding-top: 20px
+  width: 50vw
+
+#sticky.back
+  left: 0
+
+#sticky.next
+  left: calc(50vw)
+
+#sticky.next #next .toggle
+  display: none
 
 
 /* OBJECTS -> For styling objects */
 /* Includes cosmetic styles like color, typography, and borders */
 /* INCEPTION RULE: DO NOT nest more than 4  */
 
+.property
+  border-bottom: 2px solid $lime
+
+
+.property#last
+  border-bottom: none
 
 .thumb
   +img
 
-#details
+.details
   h1
     @extend .chron-d
     font-size: $bx3
@@ -143,7 +170,7 @@
     font-size: $sx2
     letter-spacing: 0.05em
 
-#controls
+.controls
   .visit
     > a
       font-size: $sx2
@@ -160,7 +187,28 @@
     color: $lime
     text-transform: uppercase
     letter-spacing: 0.05em
+    transition: color 0.3s
 
   .back
     border-right: 2px solid $lime
 
+#back-prop
+  &:hover
+
+    #back
+      color: $darkgrey
+
+    .arrow-cls-1
+      fill: $darkgrey
+
+#next-prop
+  &:hover
+
+    #next
+      color: $darkgrey
+
+    .arrow-cls-1
+      fill: $darkgrey
+
+#sticky
+  background-color: rgba(255, 255, 255, 0.95)
