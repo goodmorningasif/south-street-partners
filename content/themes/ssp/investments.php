@@ -73,10 +73,13 @@
         <?php endif; ?>
 	<!-- == Section: Thumbs == -->
 	<section class="thumbs">
-	  <div class="thumb" id="th-0"
+	  <?php if ($thumb1): ?>
+		  <div class="thumb" id="th-0"
 	    style="background-image: url(<?php echo $thumb1['url']; ?>)"></div>
-	  <div class="thumb" id="th-1"
+	  <?php endif; if ($thumb2): ?>
+		  <div class="thumb" id="th-1"
 		  style="background-image: url(<?php echo $thumb2['url']; ?>)"></div>
+		<?php endif; ?>
 	</section>
 
 	<!-- == Section: Details == -->
