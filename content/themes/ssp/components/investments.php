@@ -12,7 +12,7 @@
 
 <!-- == Section: Ongoing == -->
 <section id="ongoing">
-  <h3>Ongoing</h3> 
+  <h3>Active</h3> 
 	<?php 
 	  $count=0;
 	  if( have_rows('ongoing', '2') ) :
