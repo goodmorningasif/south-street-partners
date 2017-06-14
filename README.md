@@ -1,6 +1,5 @@
 [![Stories in Ready](https://badge.waffle.io/sdco-partners/south-street-partners.png?label=ready&title=Ready)](https://waffle.io/sdco-partners/south-street-partners)
 # South Street Partners
-Last Updated: 04/12/17 | Copyright 2017 SDCO Partners
 [http://southstreetpartners.com](http://southstreetpartners.com)
 
 Last Update: April 12/2017 | Copyright 2017 SDCO Partners
